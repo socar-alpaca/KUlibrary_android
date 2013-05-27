@@ -18,7 +18,7 @@ public class MainActivity extends FragmentActivity {
 				.beginTransaction();
 		transaction.setCustomAnimations(android.R.anim.fade_in,
 				android.R.anim.fade_out);
-        Fragment NowFragment = new LoginFragment();
+        Fragment NowFragment = new LoginFragment(this);
 		transaction.replace(R.id.fragment, NowFragment);
 		transaction.commit();
     }
@@ -30,7 +30,13 @@ public class MainActivity extends FragmentActivity {
     }
     
     public void changeFragment(){
-    	
+    	FragmentTransaction transaction = getSupportFragmentManager()
+				.beginTransaction();
+		transaction.setCustomAnimations(android.R.anim.fade_in,
+				android.R.anim.fade_out);
+        Fragment NowFragment = new LibraryFragment(this);
+		transaction.replace(R.id.fragment, NowFragment);
+		transaction.commit();
     	
     }
 
